@@ -60,7 +60,7 @@ export async function POST(req) {
           <p>Hello,</p>
           <p>You have requested to reset your password. Please click the button below to reset it:</p>
           <div style="text-align: center; margin: 30px 0;">
-            <a href="http://localhost:3000/reset-password?token=${resetToken}&email=${email}"
+            <a href="https://secure-auth-tau.vercel.app/reset-password?token=${resetToken}&email=${email}"
                style="background-color: #007bff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px;">
               Reset Password
             </a>
