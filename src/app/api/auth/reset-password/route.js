@@ -49,7 +49,7 @@ export async function POST(req) {
 
     const mailOptions = {
       from: {
-        name: "Your App Name",
+        name: "Avasrmarg",
         address: process.env.EMAIL_USER,
       },
       to: email,
@@ -60,10 +60,11 @@ export async function POST(req) {
           <p>Hello,</p>
           <p>You have requested to reset your password. Please click the button below to reset it:</p>
           <div style="text-align: center; margin: 30px 0;">
-            <a href="https://secure-auth-tau.vercel.app/reset-password?token=${resetToken}&email=${email}"
+            <a href="https://secure-auth-tau.vercel.app//reset-password?token=${resetToken}&email=${email}"
                style="background-color: #007bff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px;">
               Reset Password
             </a>
+         
           </div>
           <p>This link will expire in 1 hour for security reasons.</p>
           <p>If you didn't request this password reset, please ignore this email or contact support if you have concerns.</p>

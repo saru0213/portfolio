@@ -10,11 +10,11 @@ import {
   doc,
 } from "firebase/firestore";
 import { useRouter } from "next/navigation";
-
 import { db } from "../../../configs/firebase-config";
 import Image from "next/image";
 import Login from "../Components/Glogin";
 import { signIn } from "next-auth/react";
+import { Eye, EyeOff } from "lucide-react"; // If using Heroicons
 
 const LoginPage = () => {
   const router = useRouter();
@@ -24,8 +24,10 @@ const LoginPage = () => {
     password: "",
     rememberMe: false,
   });
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loginLoading, setLoginLoading] = useState(false);
+  const [resetLoading, setResetLoading] = useState(false);
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
   const [resetEmail, setResetEmail] = useState("");
   const [resetStatus, setResetStatus] = useState("");
@@ -42,11 +44,11 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
-    setLoading(true);
+    setLoginLoading(true);
 
     const res = await signIn("credentials", {
       redirect: false,
-      email: formData.username, // works for email or username
+      email: formData.username,
       password: formData.password,
       rememberMe: formData.rememberMe.toString(),
     });
@@ -58,21 +60,19 @@ const LoginPage = () => {
       setError("Invalid username/email or password");
     }
 
-    setLoading(false);
+    setLoginLoading(false);
   };
 
   const handlePasswordReset = async (e) => {
     e.preventDefault();
     setResetStatus("");
-    setLoading(true);
+    setResetLoading(true);
 
     try {
-      // Generate a unique reset token and expiration time
       const resetToken = Math.random().toString(36).substr(2, 15);
       const resetExpiration = new Date();
-      resetExpiration.setHours(resetExpiration.getHours() + 1); // Token expires in 1 hour
+      resetExpiration.setHours(resetExpiration.getHours() + 1);
 
-      // Find user by email
       const usersRef = collection(db, "users");
       const q = query(usersRef, where("email", "==", resetEmail.toLowerCase()));
       const querySnapshot = await getDocs(q);
@@ -83,22 +83,15 @@ const LoginPage = () => {
 
       const userDoc = querySnapshot.docs[0];
 
-      // Update user document with reset token and expiration
       await updateDoc(doc(db, "users", userDoc.id), {
         resetToken,
         resetExpiration: resetExpiration.toISOString(),
       });
 
-      // Send password reset email
       const response = await fetch("/api/auth/reset-password", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: resetEmail,
-          resetToken,
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: resetEmail, resetToken }),
       });
 
       if (!response.ok) {
@@ -111,7 +104,7 @@ const LoginPage = () => {
       console.error("Password reset error:", err);
       setResetStatus(err.message);
     } finally {
-      setLoading(false);
+      setResetLoading(false);
     }
   };
 
@@ -161,9 +154,9 @@ const LoginPage = () => {
               />
             </div>
 
-            <div>
+            <div className="relative">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
@@ -171,6 +164,17 @@ const LoginPage = () => {
                 className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 required
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500"
+              >
+                {showPassword ? (
+                  <Eye className="h-5 w-5" />
+                ) : (
+                  <EyeOff className="h-5 w-5" />
+                )}
+              </button>
             </div>
 
             <div className="flex items-center justify-between">
@@ -196,10 +200,10 @@ const LoginPage = () => {
 
             <button
               type="submit"
-              disabled={loading}
+              disabled={loginLoading}
               className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg text-lg font-semibold disabled:opacity-50 transition-colors"
             >
-              {loading ? "Logging in..." : "Login"}
+              {loginLoading ? "Logging in..." : "Login"}
             </button>
 
             <div className="relative my-6">
@@ -208,8 +212,8 @@ const LoginPage = () => {
                 or
               </span>
             </div>
+
             <div>
-              {" "}
               <Login />
             </div>
 
@@ -228,16 +232,16 @@ const LoginPage = () => {
 
       {/* Password Reset Modal */}
       {isResetModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg p-6 max-w-md w-full">
             <h3 className="text-xl font-bold mb-4">Reset Password</h3>
             <form onSubmit={handlePasswordReset} className="space-y-4">
               {resetStatus && (
                 <div
                   className={`p-3 rounded ${
-                    resetStatus.includes("error")
-                      ? "bg-red-100 text-red-700"
-                      : "bg-green-100 text-green-700"
+                    resetStatus.includes("Password reset link has been sent")
+                      ? "bg-green-100 text-green-700"
+                      : "bg-red-100 text-red-700"
                   }`}
                 >
                   {resetStatus}
@@ -261,10 +265,10 @@ const LoginPage = () => {
                 </button>
                 <button
                   type="submit"
-                  disabled={loading}
+                  disabled={resetLoading}
                   className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
                 >
-                  {loading ? "Sending..." : "Send Reset Link"}
+                  {resetLoading ? "Sending..." : "Send Reset Link"}
                 </button>
               </div>
             </form>
