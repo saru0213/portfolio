@@ -1,20 +1,19 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Provider from "./Components/Provider";
-import Header from "./Components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+
+import './globals.css'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: "Secure Auth",
-description: "A Next.js project for secure user authentication with OTP and modern security features."
-};
+  title: 'Saraswati Adkine - Full Stack Developer',
+  description: 'Full Stack Developer Portfolio with hackathon journey',
+}
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}><Provider><Header/>{children}</Provider></body>
+      <body className={inter.className}>{children}</body>
     </html>
-  );
-  
+  )
 }
