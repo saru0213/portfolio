@@ -39,7 +39,7 @@ const Projects = () => {
       //   'NextAuth.js for session and token management'
       // ],
       github: "https://github.com/saru0213/SecureAuth", // replace with your repo link
-      live: "https://secure-authpass.vercel.app",
+      live: "https://secure-authpass.vercel.app/",
     },
 
     // {
@@ -82,8 +82,8 @@ const Projects = () => {
       //   "Form validation with Yup and Formik",
       //   "Weather updates integration (if applicable)",
       // ],
-      github: "https://github.com/yourusername/taskly", // replace with your actual repo link
-      // live: "#", // add live link if deployed
+      github: "https://github.com/saru0213/taskly", // replace with your actual repo link
+      live: "https://taskly-ruby.vercel.app/", // add live link if deployed
     },
 
     {
