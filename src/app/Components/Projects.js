@@ -16,7 +16,6 @@ const Projects = () => {
       title: "SecureAuth Web Application",
       description:
         "SecureAuth is a full-stack authentication platform built with Next.js and React, featuring Google OAuth, bcrypt password hashing, OTP verification, JWT-protected routes, and Firebase Firestore integration for secure user management.",
-
       tech: [
         "Next.js",
         "React",
@@ -28,37 +27,15 @@ const Projects = () => {
         "Firebase Firestore",
         "Lucide React",
       ],
-      // features: [
-      //   'Username/Email + Password Login with bcrypt hashing',
-      //   'Google OAuth Sign-In via NextAuth.js',
-      //   'JWT Tokens for protected routes',
-      //   'OTP Verification during signup and password reset',
-      //   'Responsive UI with Tailwind CSS and dark mode support',
-      //   'Firebase Firestore as backend database',
-      //   'Protected routes with middleware authentication',
-      //   'NextAuth.js for session and token management'
-      // ],
-      github: "https://github.com/saru0213/SecureAuth", // replace with your repo link
+      github: "https://github.com/saru0213/SecureAuth",
       live: "https://secure-authpass.vercel.app/",
     },
-
-    // {
-    //   id: 3,
-    //   title: 'Weather Dashboard',
-    //   description: 'Real-time weather tracking with interactive charts and location-based forecasts',
-    //   tech: ['Vue.js', 'Chart.js', 'OpenWeather API', 'Sass'],
-    //   github: '#',
-    //   live: '#'
-    // },
-
     {
       id: 2,
       title: "Modern College Website Using AI",
       description:
         "An interactive, responsive college website built with Next.js and Tailwind CSS, featuring AI-powered chatbots for guidance, AI-generated content, and seamless navigation for an enhanced student experience.",
       tech: ["Next.js", "Tailwind CSS", "Gemini API"],
-      // github: "https://github.com/yourusername/modern-college-ai", // replace with your repo link
-      // live: "#", // add live link if deployed
     },
     {
       id: 3,
@@ -74,26 +51,15 @@ const Projects = () => {
         "bcryptjs",
         "Weather API",
       ],
-      // features: [
-      //   "Add, edit, and delete tasks",
-      //   "User authentication with bcryptjs password hashing",
-      //   "Personalized task access after login",
-      //   "Responsive design for all devices",
-      //   "Form validation with Yup and Formik",
-      //   "Weather updates integration (if applicable)",
-      // ],
-      github: "https://github.com/saru0213/taskly", // replace with your actual repo link
-      live: "https://taskly-ruby.vercel.app/", // add live link if deployed
+      github: "https://github.com/saru0213/taskly",
+      live: "https://taskly-ruby.vercel.app/",
     },
-
     {
       id: 4,
       title: "Mock Interview Website with AI",
       description:
         "A web application that simulates technical interviews using AI, providing instant feedback and highlighting strengths and areas of improvement.",
       tech: ["Next.js", "Firebase", "Gemini", "Tailwind CSS"],
-      // github: "https://github.com/yourusername/mock-interview-ai", // replace with your repo link
-      // live: "#", // add live link if deployed
     },
     {
       id: 5,
@@ -101,8 +67,6 @@ const Projects = () => {
       description:
         "Online appointment booking platform built with PHP and MySQL, enabling patient registration, doctor availability management, and automated notifications.",
       tech: ["PHP", "MySQL", "HTML", "CSS"],
-      // github: "https://github.com/yourusername/doctor-appointment-system", // replace with your repo link
-      // live: "#", // add live link if deployed
     },
     {
       id: 6,
@@ -111,14 +75,11 @@ const Projects = () => {
         "A simple Streamlit app to extract structured text from PDF files and convert it into an Excel (.xlsx) format. Built using Python, pdfplumber, pandas, and Streamlit for seamless file handling and user interaction.",
       tech: ["Python", "Streamlit", "pdfplumber", "pandas"],
       github: "https://github.com/saru0213/pdf_to_excel_converter",
-      // live: "#", // add live Streamlit Cloud link if deployed
     },
   ];
 
   return (
-    <section id="projects"
-    
-     className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <div
@@ -193,40 +154,46 @@ const Projects = () => {
 
                 {/* Project Links */}
                 <div className="flex gap-4 pt-4 border-t border-gray-700">
-                  <a
-                    href={project.github}
-                    className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <svg
-                      className="w-4 h-4"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                    </svg>
-                    Code
-                  </a>
-                  <a
-                    href={project.live}
-                    className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                      <svg
+                        className="w-4 h-4"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                      </svg>
+                      Code
+                    </a>
+                  )}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
-                    Live Demo
-                  </a>
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                      Live Demo
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
