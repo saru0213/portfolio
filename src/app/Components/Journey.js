@@ -1,6 +1,5 @@
-// app/components/Gallery.js
+
 "use client";
-import Image from "next/image";
 import { useState } from "react";
 
 const Journey = () => {
@@ -114,26 +113,24 @@ const Journey = () => {
     return (
       <div className="relative overflow-hidden">
         {!hasError && item.image && (
-          <Image
-            width={300}
-            height={300}
+          <img
             src={item.image}
             alt={item.title}
-            className="w-full h-56 object-cover"
+            className="w-full h-48 sm:h-56 lg:h-64 object-cover"
             onError={() => handleImageError(item.id, type)}
           />
         )}
         {(hasError || !item.image) && (
-          <div className="w-full h-56 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
+          <div className="w-full h-48 sm:h-56 lg:h-64 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
             <div className="text-center">
-              <div className="text-4xl mb-2">{item.icon}</div>
-              <span className="text-white text-sm">
+              <div className="text-3xl sm:text-4xl mb-2">{item.icon}</div>
+              <span className="text-white text-xs sm:text-sm">
                 {type === "victory" ? "Victory" : "Video"}
               </span>
             </div>
           </div>
         )}
-        <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+        <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
           {type === "victory" ? item.date : item.duration}
         </div>
       </div>
@@ -147,7 +144,7 @@ const Journey = () => {
       <div className="relative overflow-hidden">
         {!hasError && video.video && (
           <video
-            className="w-full h-64 object-contain bg-gray-800"
+            className="w-full h-48 sm:h-56 lg:h-64 object-contain bg-gray-800"
             controls
             preload="metadata"
             onError={() => handleVideoError(video.id)}
@@ -157,10 +154,10 @@ const Journey = () => {
           </video>
         )}
         {(hasError || !video.video) && (
-          <div className="w-full h-64 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
+          <div className="w-full h-48 sm:h-56 lg:h-64 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
             <div className="text-center">
-              <div className="text-4xl mb-2">{video.icon}</div>
-              <span className="text-white text-sm">Video</span>
+              <div className="text-3xl sm:text-4xl mb-2">{video.icon}</div>
+              <span className="text-white text-xs sm:text-sm">Video</span>
             </div>
           </div>
         )}
@@ -168,89 +165,115 @@ const Journey = () => {
     );
   };
 
+  const tabs = [
+    { key: "victories", label: "Victories", fullLabel: "Victories & Achievements", icon: "🏆" },
+    { key: "journey", label: "Journey", fullLabel: "Journey Videos", icon: "🎬" },
+  ];
+
   return (
     <section
       id="achievements"
-      
-      className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-black relative"
+      className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-black relative"
     >
-      <div className="container mx-auto">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+      <div className="container mx-auto max-w-7xl">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4">
             My{" "}
             <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
               Journey
             </span>
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">
+          <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg px-4">
             Victories, achievements, and the story of my tech journey
           </p>
         </div>
 
-        {/* Tab Navigation */}
-        <div className="flex justify-center gap-4 mb-12 flex-wrap">
-          {[
-            { key: "victories", label: "Victories & Achievements", icon: "🏆" },
-            { key: "journey", label: "Journey Videos", icon: "🎬" },
-          ].map((tab) => (
-            <button
-              key={tab.key}
-              onClick={() => setActiveTab(tab.key)}
-              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
-                activeTab === tab.key
-                  ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg transform scale-105"
-                  : "bg-gray-900 border border-gray-700 text-gray-300 hover:text-white hover:bg-gray-800 hover:border-gray-600"
-              }`}
-            >
-              <span>{tab.icon}</span>
-              {tab.label}
-            </button>
-          ))}
+        {/* Responsive Tab Navigation */}
+        <div className="mb-8 sm:mb-12">
+          {/* Mobile: Full width stacked tabs */}
+          <div className="flex flex-col sm:hidden gap-3 px-2">
+            {tabs.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`w-full px-4 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 text-sm touch-manipulation active:scale-95 ${
+                  activeTab === tab.key
+                    ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/25"
+                    : "bg-gray-900 border border-gray-700 text-gray-300 hover:text-white hover:bg-gray-800 hover:border-gray-600"
+                }`}
+              >
+                <span className="text-lg">{tab.icon}</span>
+                <span>{tab.fullLabel}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Tablet & Desktop: Horizontal centered tabs */}
+          <div className="hidden sm:flex justify-center gap-3 md:gap-4 lg:gap-6">
+            {tabs.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`px-4 md:px-6 lg:px-8 py-3 md:py-4 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 md:gap-3 text-sm md:text-base whitespace-nowrap ${
+                  activeTab === tab.key
+                    ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/25 transform scale-105"
+                    : "bg-gray-900 border border-gray-700 text-gray-300 hover:text-white hover:bg-gray-800 hover:border-gray-600 hover:scale-102"
+                }`}
+              >
+                <span className="text-lg md:text-xl">{tab.icon}</span>
+                <span className="hidden md:inline">{tab.fullLabel}</span>
+                <span className="md:hidden">{tab.label}</span>
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Victories Tab */}
+        {/* Content Sections */}
         {activeTab === "victories" && (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {hackathons.map((hackathon) => (
               <div
                 key={hackathon.id}
-                className="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 group"
+                className="bg-gray-900 border border-gray-800 rounded-lg sm:rounded-xl overflow-hidden hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 group"
               >
                 <ImagePlaceholder item={hackathon} type="victory" />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 line-clamp-2">
                     {hackathon.title}
                   </h3>
-                  <p className="text-purple-300 font-semibold mb-2">
+                  <p className="text-purple-300 font-semibold mb-2 text-sm sm:text-base">
                     {hackathon.achievement}
                   </p>
-                  <p className="text-gray-300">{hackathon.description}</p>
+                  <p className="text-gray-300 text-sm sm:text-base line-clamp-3">
+                    {hackathon.description}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
         )}
 
-        {/* Journey Videos Tab */}
         {activeTab === "journey" && (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
             {journeyVideos.map((video) => (
               <div
                 key={video.id}
-                className="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 group"
+                className="bg-gray-900 border border-gray-800 rounded-lg sm:rounded-xl overflow-hidden hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 group"
               >
                 <VideoPlaceholder video={video} />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
                     {video.title}
                   </h3>
-                  <p className="text-gray-300 mb-4">{video.description}</p>
+                  <p className="text-gray-300 mb-4 text-sm sm:text-base">
+                    {video.description}
+                  </p>
 
                   <div className="flex flex-wrap gap-2">
                     {video.tags.map((tag, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm border border-purple-500/30"
+                        className="px-2 sm:px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs sm:text-sm border border-purple-500/30"
                       >
                         {tag}
                       </span>

@@ -37,6 +37,10 @@ const Certifications = () => {
       description: 'Hands-on experience with real-world developer challenges and technology solutions'
     }
   ];
+    const handleClick = () => {
+    // Add your redirect logic here
+    console.log('Redirecting to certifications...');
+  };
 
   return (
     <section id="certifications"  className="py-20 px-4 bg-black">
@@ -89,13 +93,19 @@ const Certifications = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-16">
-          <button className="inline-flex items-center px-8 py-4 rounded-full text-white font-medium bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-purple-500/25">
-            <span>🏆</span>
-            <span className="ml-2 mr-3">View All Certifications</span>
-            <span>→</span>
-          </button>
-        </div>
+           <div className="w-full px-4 sm:px-6 lg:px-8">
+      <div className="text-center mt-8 sm:mt-12 md:mt-16">
+        <button 
+          onClick={handleClick}
+          className="inline-flex items-center justify-center w-full sm:w-auto px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-full text-white font-medium bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-purple-500/25 text-sm sm:text-base md:text-lg touch-manipulation active:scale-95 focus:outline-none focus:ring-4 focus:ring-purple-300 focus:ring-opacity-50"
+        >
+          <span className="text-lg sm:text-xl md:text-2xl">🏆</span>
+          <span className="ml-2 mr-2 sm:mr-3 whitespace-nowrap">View All Certifications</span>
+          <span className="text-lg sm:text-xl">→</span>
+        </button>
+      </div>
+    </div>
+
       </div>
     </section>
   );

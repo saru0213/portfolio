@@ -10,6 +10,11 @@ const Projects = () => {
     return () => clearTimeout(timer);
   }, []);
 
+   const handleRedirect = () => {
+    window.open('https://github.com/saru0213', '_blank');
+  };
+
+
   const projects = [
     {
       id: 1,
@@ -206,7 +211,8 @@ const Projects = () => {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <button className="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25">
+          <button className="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25"
+            onClick={handleRedirect}>
             View More Projects
           </button>
         </div>
