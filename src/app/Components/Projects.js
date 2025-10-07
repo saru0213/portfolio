@@ -10,14 +10,34 @@ const Projects = () => {
     return () => clearTimeout(timer);
   }, []);
 
-   const handleRedirect = () => {
-    window.open('https://github.com/saru0213', '_blank');
+  const handleRedirect = () => {
+    window.open("https://github.com/saru0213", "_blank");
   };
-
 
   const projects = [
     {
-      id: 1,
+  id: 1,
+  title: "Avsarmarg – Your Journey from Campus to Company Starts Here",
+  description:
+    "An AI-powered career platform that provides personalized career paths, skills development, interview preparation, and job opportunities tailored for students. I worked on the course module and authentication using Google sign-in, implemented simple JWT token handling, and managed backend functionality.",
+  tech: [
+    "React.js",
+    "Next.js",
+    "Firebase",
+    "Gemini AI API",
+    "Tailwind CSS",
+    "GitHub",
+    "Vercel (CI/CD)",
+    "Monaco Editor",
+    "Judge0 API",
+    "Cheerio",
+    "Job Listing Fetch API"
+  ],
+  live: "https://avsarmarg.vercel.app/",
+}
+,
+    {
+      id: 2,
       title: "SecureAuth Web Application",
       description:
         "SecureAuth is a full-stack authentication platform built with Next.js and React, featuring Google OAuth, bcrypt password hashing, OTP verification, JWT-protected routes, and Firebase Firestore integration for secure user management.",
@@ -36,14 +56,52 @@ const Projects = () => {
       live: "https://secure-authpass.vercel.app/",
     },
     {
-      id: 2,
+      id: 3,
+      title: "File Xerox – Upload → Print → Pickup",
+      description:
+        "A revolutionary cloud printing platform that connects users to nearby Xerox centers. Upload your files, print securely, and pick them up—no USB drives or waiting required. Built with modern web tech and cloud integration for seamless performance.",
+      tech: [
+        "React.js",
+        "Next.js",
+        "Tailwind CSS",
+        "Vercel (CI/CD)",
+        "Cloudinary",
+      ],
+      github: "https://github.com/saru0213/FileXerox",
+    },
+    {
+      id: 4,
+      title: "cityInsights – City Information Finder",
+      description:
+        "An AI-powered platform that helps users find detailed information about cities across different states and countries. Built with Gemini AI API for intelligent responses and a responsive UI for a seamless search experience.",
+      tech: ["React", "Next.js", "Gemini AI API", "Tailwind CSS"],
+      github: "https://github.com/saru0213/CityInsights",
+      live: "https://cityinsights.vercel.app/",
+    },
+    {
+      id: 5,
       title: "Modern College Website Using AI",
       description:
         "An interactive, responsive college website built with Next.js and Tailwind CSS, featuring AI-powered chatbots for guidance, AI-generated content, and seamless navigation for an enhanced student experience.",
       tech: ["Next.js", "Tailwind CSS", "Gemini API"],
     },
     {
-      id: 3,
+      id: 6,
+      title: "C-Rush 3.0 – Hackathon Event Website",
+      description:
+        "An event website for the Ultimate Programming Challenge organized by the GCOEY Team. Built to manage event details, registration, and announcements, featuring AI-powered elements and responsive UI for an engaging hackathon experience.",
+      tech: [
+        "React.js",
+        "Next.js",
+        "Gemini AI API",
+        "Tailwind CSS",
+        "Vercel (CI/CD)",
+      ],
+      github: "https://github.com/saru0213/c-rush",
+      live: "https://c-rush.vercel.app/",
+    },
+    {
+      id: 7,
       title: "Taskly",
       description:
         "Taskly is a task management web app built with React.js and Tailwind CSS, allowing users to add, edit, delete, and track tasks with secure authentication and a responsive UI.",
@@ -60,21 +118,14 @@ const Projects = () => {
       live: "https://taskly-ruby.vercel.app/",
     },
     {
-      id: 4,
-      title: "Mock Interview Website with AI",
-      description:
-        "A web application that simulates technical interviews using AI, providing instant feedback and highlighting strengths and areas of improvement.",
-      tech: ["Next.js", "Firebase", "Gemini", "Tailwind CSS"],
-    },
-    {
-      id: 5,
+      id: 8,
       title: "Doctor-Patient Appointment System",
       description:
         "Online appointment booking platform built with PHP and MySQL, enabling patient registration, doctor availability management, and automated notifications.",
       tech: ["PHP", "MySQL", "HTML", "CSS"],
     },
     {
-      id: 6,
+      id: 9,
       title: "PDF to Excel Converter",
       description:
         "A simple Streamlit app to extract structured text from PDF files and convert it into an Excel (.xlsx) format. Built using Python, pdfplumber, pandas, and Streamlit for seamless file handling and user interaction.",
@@ -211,8 +262,10 @@ const Projects = () => {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <button className="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25"
-            onClick={handleRedirect}>
+          <button
+            className="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25"
+            onClick={handleRedirect}
+          >
             View More Projects
           </button>
         </div>
