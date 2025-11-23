@@ -1,4 +1,4 @@
-// app/components/Skills.js
+
 "use client";
 import { useState } from "react";
 

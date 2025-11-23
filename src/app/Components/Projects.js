@@ -258,6 +258,7 @@
 
 import { useState, useEffect } from "react";
 import { ExternalLink, Github, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -294,7 +295,7 @@ const Projects = () => {
         "FastAPI",
       ],
       live:"https://periodcareforyou.vercel.app/",
-      image:"photos/periodCare.jpeg",
+      image:"/photos/periodCare.jpeg",
       gradient: "from-pink-500 to-rose-600",
     },
     {
@@ -316,7 +317,7 @@ const Projects = () => {
         "Job Listing Fetch API",
       ],
       live: "https://avsarmarg.vercel.app/",
-      image: "photos/avsarmarg.jpeg",
+      image: "/photos/avsarmarg.jpeg",
       gradient: "from-blue-500 to-purple-600",
     },
     {
@@ -337,7 +338,7 @@ const Projects = () => {
       ],
       github: "https://github.com/saru0213/SecureAuth",
       live: "https://secure-authpass.vercel.app/",
-      image: "photos/secureauth.jpeg",
+      image: "/photos/secureauth.jpeg",
       gradient: "from-green-500 to-teal-600",
     },
     {
@@ -358,7 +359,7 @@ const Projects = () => {
       tech: ["React", "Next.js", "Gemini AI API", "Tailwind CSS"],
       github: "https://github.com/saru0213/CityInsights",
       live: "https://cityinsights.vercel.app/",
-      image: "photos/cityinsight.jpeg",
+      image: "/photos/cityinsight.jpeg",
       gradient: "from-indigo-500 to-blue-600",
     },
     {
@@ -378,7 +379,7 @@ const Projects = () => {
       tech: ["React.js", "Next.js", "Gemini AI API", "Tailwind CSS", "Vercel (CI/CD)"],
       github: "https://github.com/saru0213/c-rush",
       live: "https://c-rush.vercel.app/",
-      image: "photos/c-rush.jpeg",
+      image: "/photos/c-rush.jpeg",
       gradient: "from-yellow-500 to-orange-600",
     },
    
@@ -404,7 +405,8 @@ const Projects = () => {
   ];
 
   return (
-    <section className="min-h-screen bg-black py-20 px-4 sm:px-6 lg:px-8">
+    <section  id="projects"
+    className="min-h-screen bg-black py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div
@@ -434,11 +436,14 @@ const Projects = () => {
               {/* Project Image with Gradient Overlay */}
               <div className="relative h-56 overflow-hidden">
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-60 group-hover:opacity-40 transition-opacity duration-500`} />
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                />
+              <Image
+  src={project.image}
+  alt={project.title}
+  width={400}   // you can change value
+  height={300}  // you can change value
+  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+/>
+
                 <div className="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-sm rounded-full p-3 border border-slate-700/50">
                   <span className="text-2xl">💻</span>
                 </div>
