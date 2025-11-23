@@ -417,7 +417,7 @@ const Projects = () => {
             My <span className="text-transparent bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text">Projects</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Here are some of the projects I've worked on, showcasing my skills across different technologies
+            Here are some of the projects I&apos;ve worked on, showcasing my skills across different technologies
           </p>
         </div>
 

@@ -185,7 +185,7 @@ const About = () => {
                 </div>
 
                 <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base leading-relaxed">
-                  I'm a passionate Full Stack Developer skilled in modern web technologies, working across React, Next.js, backend systems, and AI integrations. Through hands-on projects and hackathons, I've built strong technical expertise and a user-focused approach to creating seamless digital experiences.
+  I&apos;m a passionate Full Stack Developer skilled in modern web technologies, working across React, Next.js, backend systems, and AI integrations. Through hands-on projects and hackathons, I&apos;ve built strong technical expertise and a user-focused approach to creating seamless digital experiences.
                 </p>
 
                 {/* Core Values */}
