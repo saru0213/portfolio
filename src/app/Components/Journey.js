@@ -1,4 +1,3 @@
-
 "use client";
 import { useState } from "react";
 
@@ -13,8 +12,7 @@ const Journey = () => {
       title: "Tech-Carvaan 2025",
       date: "24 March 2025",
       achievement: "Winner - National Level Technical Fest",
-      description:
-        "Winners of the 24-hour hackathon at Tech-Carvaan 2025, held in Jalgaon.",
+      description: "Winners of the 24-hour hackathon at Tech-Carvaan 2025, held in Jalgaon.",
       image: "/photos/winnerja.jpg",
       icon: "🏆",
     },
@@ -23,8 +21,7 @@ const Journey = () => {
       title: "Hacksphere 2.0",
       date: "22 March 2025",
       achievement: "Winner - 8 Hour Hackathon",
-      description:
-        "Winners of Hacksphere 2.0, an 8-hour hackathon held at Ramdeobaba University, Nagpur.",
+      description: "Winners of Hacksphere 2.0, an 8-hour hackathon held at Ramdeobaba University, Nagpur.",
       image: "/photos/winnerH.jpg",
       icon: "🏆",
     },
@@ -33,8 +30,7 @@ const Journey = () => {
       title: "Ennovate25",
       date: "29 March 2025",
       achievement: "2nd Rank - National Level Project Competition",
-      description:
-        "Secured 2nd rank in Ennovate25 national level project competition at Ramdeobaba University, Nagpur.",
+      description: "Secured 2nd rank in Ennovate25 national level project competition at Ramdeobaba University, Nagpur.",
       image: "/photos/img12.jpg",
       icon: "🥈",
     },
@@ -43,8 +39,7 @@ const Journey = () => {
       title: "Technovation Project Expo",
       date: "2025",
       achievement: "Winner - Project Expo",
-      description:
-        "Winners of Technovation Project Expo organized by IEEE SB SSGMCE, Shegaon.",
+      description: "Winners of Technovation Project Expo organized by IEEE SB SSGMCE, Shegaon.",
       image: "/photos/winnerS.jpg",
       icon: "🏆",
     },
@@ -53,8 +48,7 @@ const Journey = () => {
       title: "Tech Axion 2025 Ideathon",
       date: "5 April 2025",
       achievement: "2nd Rank - Idea-thon",
-      description:
-        "Secured 2nd rank in Idea-thon at Tech Axion 2025, a national level technical fest at TGPCET, Nagpur.",
+      description: "Secured 2nd rank in Idea-thon at Tech Axion 2025, a national level technical fest at TGPCET, Nagpur.",
       image: "/photos/winnerN.jpg",
       icon: "🥈",
     },
@@ -63,8 +57,7 @@ const Journey = () => {
       title: "Brahmax 1.0",
       date: "16-17 May 2025",
       achievement: "2nd Rank - BGIEM Jabalpur",
-      description:
-        "Secured 2nd rank in the 24-hour hackathon at BGIEM, Jabalpur, Madhya Pradesh.",
+      description: "Secured 2nd rank in the 24-hour hackathon at BGIEM, Jabalpur, Madhya Pradesh.",
       image: "/photos/winnerJ.jpg",
       icon: "🥈",
     },
@@ -83,8 +76,7 @@ const Journey = () => {
     {
       id: 2,
       title: "Hackathon Leadership 2024",
-      description:
-        "Leading our team and explaining projects during hackathons.",
+      description: "Leading our team and explaining projects during hackathons.",
       video: "/photos/video1.mp4",
       duration: "8:45",
       icon: "👥",
@@ -188,18 +180,18 @@ const Journey = () => {
           </p>
         </div>
 
-        {/* Responsive Tab Navigation */}
+        {/* Tab Navigation */}
         <div className="mb-8 sm:mb-12">
-          {/* Mobile: Full width stacked tabs */}
+          {/* Mobile: Stacked tabs */}
           <div className="flex flex-col sm:hidden gap-3 px-2">
             {tabs.map((tab) => (
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`w-full px-4 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 text-sm touch-manipulation active:scale-95 ${
+                className={`w-full px-4 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 text-sm ${
                   activeTab === tab.key
                     ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/25"
-                    : "bg-gray-900 border border-gray-700 text-gray-300 hover:text-white hover:bg-gray-800 hover:border-gray-600"
+                    : "bg-gray-900 border border-gray-700 text-gray-300"
                 }`}
               >
                 <span className="text-lg">{tab.icon}</span>
@@ -208,16 +200,16 @@ const Journey = () => {
             ))}
           </div>
 
-          {/* Tablet & Desktop: Horizontal centered tabs */}
+          {/* Desktop: Horizontal tabs */}
           <div className="hidden sm:flex justify-center gap-3 md:gap-4 lg:gap-6">
             {tabs.map((tab) => (
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`px-4 md:px-6 lg:px-8 py-3 md:py-4 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 md:gap-3 text-sm md:text-base whitespace-nowrap ${
+                className={`px-4 md:px-6 lg:px-8 py-3 md:py-4 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 md:gap-3 text-sm md:text-base ${
                   activeTab === tab.key
                     ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/25 transform scale-105"
-                    : "bg-gray-900 border border-gray-700 text-gray-300 hover:text-white hover:bg-gray-800 hover:border-gray-600 hover:scale-102"
+                    : "bg-gray-900 border border-gray-700 text-gray-300"
                 }`}
               >
                 <span className="text-lg md:text-xl">{tab.icon}</span>
@@ -228,13 +220,13 @@ const Journey = () => {
           </div>
         </div>
 
-        {/* Content Sections */}
+        {/* Victories Tab Content */}
         {activeTab === "victories" && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {hackathons.map((hackathon) => (
               <div
                 key={hackathon.id}
-                className="bg-gray-900 border border-gray-800 rounded-lg sm:rounded-xl overflow-hidden hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 group"
+                className="bg-gray-900 border border-gray-800 rounded-lg sm:rounded-xl overflow-hidden hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300"
               >
                 <ImagePlaceholder item={hackathon} type="victory" />
                 <div className="p-4 sm:p-6">
@@ -253,12 +245,13 @@ const Journey = () => {
           </div>
         )}
 
+        {/* Journey Tab Content */}
         {activeTab === "journey" && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
             {journeyVideos.map((video) => (
               <div
                 key={video.id}
-                className="bg-gray-900 border border-gray-800 rounded-lg sm:rounded-xl overflow-hidden hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 group"
+                className="bg-gray-900 border border-gray-800 rounded-lg sm:rounded-xl overflow-hidden hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300"
               >
                 <VideoPlaceholder video={video} />
                 <div className="p-4 sm:p-6">

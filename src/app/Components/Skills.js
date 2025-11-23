@@ -58,12 +58,24 @@ const Skills = () => {
         { name: "Critical Thinking", icon: "CT" },
       ],
     },
+
+    // ➕ NEW CATEGORY
+    awslearning: {
+      title: "Currently Learning: AWS Cloud",
+      skills: [
+        { name: "Amazon EC2", icon: "☁️" },
+        { name: "IAM & Users", icon: "🔑" },
+        { name: "S3 Storage", icon: "📦" },
+        { name: "AWS Lambda", icon: "⚡" },
+        { name: "API Gateway", icon: "🔗" },
+        { name: "CloudWatch", icon: "📊" },
+      ],
+    },
   };
 
   return (
     <section
       id="skills"
-      
       className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-black"
     >
       <div className="container mx-auto">

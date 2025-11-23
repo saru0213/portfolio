@@ -38,9 +38,10 @@ const Certifications = () => {
     }
   ];
     const handleClick = () => {
-    // Add your redirect logic here
-    console.log('Redirecting to certifications...');
-  };
+  window.open("https://drive.google.com/drive/folders/1ExoJM_pEwQRM8GKphKAplRb4S5Y7K0xZ?usp=sharing", "_blank");
+};
+
+  https://drive.google.com/drive/folders/1ExoJM_pEwQRM8GKphKAplRb4S5Y7K0xZ?usp=sharing
 
   return (
     <section id="certifications"  className="py-20 px-4 bg-black">

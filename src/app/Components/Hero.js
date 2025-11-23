@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import React, { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -9,7 +9,7 @@ const roles = [
   "Problem Solver",
   "Tech Innovator",
 ];
-const HeroSection = () => {
+const Hero = () => {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
 
   useEffect(() => {
@@ -36,23 +36,19 @@ const HeroSection = () => {
             </h1>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-2 sm:space-y-0 sm:space-x-2 text-lg sm:text-xl md:text-2xl text-gray-300 px-4 sm:px-0">
-              <span>I am a</span>
+             
               <span className="text-purple-400 font-semibold transition-all duration-500 min-h-[1.5em] flex items-center">
                 {roles[currentRoleIndex]}
               </span>
             </div>
 
             <p className="text-gray-400 text-sm sm:text-base lg:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed px-4 sm:px-2 lg:px-0">
-              I am a motivated and versatile individual, always eager to take on
-              new challenges. With a passion for learning I am dedicated to
-              delivering high-quality results. With a positive attitude and a
-              growth mindset, I am ready to make a meaningful contribution and
-              achieve great things.
+             Passionate about creating innovative solutions with a growth mindset and dedication to excellence.
             </p>
 
             <div className="flex justify-center lg:justify-start pt-2 sm:pt-4 px-4 sm:px-0">
               <a
-                href="https://drive.google.com/file/d/1T8jshZLPsKp_yEmyJ_SJEyzBvAlrhkj9/view?usp=sharing" // replace with your actual resume file path or external link
+                href="https://drive.google.com/file/d/192QYEvB8UYLdE7ZSAHWJ_i6AulJSAmNs/view?usp=sharing" // replace with your actual resume file path or external link
                 target="_blank" // opens in new tab
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full
@@ -124,4 +120,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default Hero;
