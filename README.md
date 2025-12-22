@@ -31,11 +31,12 @@ It focuses on clean design, fast performance, and a smooth user experience.
 
 ## 📸 Preview
 
-> Add screenshots of your portfolio here
+---
+
+![Portfolio Preview](p1.jpeg
 
 ---
 
-![Portfolio Preview](p1.jpeg)
 ![Portfolio Preview](p2.jpeg)
 
 
