@@ -1,4 +1,4 @@
-# 🌐 Personal Portfolio – Next.js
+# 🌐 Personal Portfolio 
 
 This is my **personal portfolio website** built with **Next.js**, designed to showcase my **projects, skills, experience, and contact details** in one place.  
 It focuses on clean design, fast performance, and a smooth user experience.
