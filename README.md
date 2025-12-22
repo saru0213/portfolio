@@ -33,7 +33,7 @@ It focuses on clean design, fast performance, and a smooth user experience.
 
 ---
 
-![Portfolio Preview](p1.jpeg
+![Portfolio Preview](p1.jpeg)
 
 ---
 
