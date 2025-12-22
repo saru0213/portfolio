@@ -33,11 +33,13 @@ It focuses on clean design, fast performance, and a smooth user experience.
 
 > Add screenshots of your portfolio here
 
-```md
-![Portfolio Preview](./portfolio-preview.jpegg)
+---
+
+![Portfolio Preview](p1.jpeg)
+![Portfolio Preview](p2.jpeg)
 
 
-```
+---
 ## 📬 Contact
 
 For collaborations, opportunities, or feedback, feel free to reach out:
